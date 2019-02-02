@@ -12,7 +12,6 @@ class ArgParserTest(unittest.TestCase):
 
     def test_parses_zip(self):
         args = arg_parser.parse_args(['--zip=12345'])
-        print args.units, 'UNITS'
         self.assertEqual(args.address, '12345')
 
     def test_exits_when_address_and_zip_provided(self):
