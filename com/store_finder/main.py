@@ -6,7 +6,7 @@ from file_parser import parse_file
 from distance_calculator import find_closest_store
 from output_formatter import format_output
 from google_client import GoogleClient
-from googlemaps import Client
+from user_agent import UserAgent
 
 def main():
     key = os.environ.get('API_KEY', None)
@@ -14,7 +14,7 @@ def main():
         sys.exit('Please provide an API key provided for lookup [env=API_KEY]')
 
     args = parse_args(sys.argv[1:])
-    client = GoogleClient(Client(key=key))
+    client = GoogleClient(UserAgent(), key)
     current_location = client.get_coords(args.address)
 
     closest_store = get_closest_store(current_location)

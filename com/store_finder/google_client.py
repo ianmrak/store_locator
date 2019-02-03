@@ -1,22 +1,30 @@
 import googlemaps
 import sys
 
+
 class GoogleClient(object):
-    def __init__(self, client):
-        self._client = client
+    def __init__(self, user_agent, key):
+        self._url = 'https://maps.googleapis.com/maps/api/'
+        self._user_agent = user_agent
+        self._key = key
+
+    def get(self, uri, params):
+        params['key'] = self._key
+        return self._user_agent.get(self._url + uri, params)
 
     def get_coords(self, address):
-        result = self._client.geocode(address)
-        if result and len(result) >= 1:
+        result = self.get('geocode/json', {'address': address })
+        if result:
             try:
-                return result[0]['geometry']['location']
+                return result['results'][0]['geometry']['location']
             except Exception:
                 sys.exit('Failed to get current location coordinates')
         else:
             sys.exit('Failed to get response with provided address')
 
     def get_distance(self, origin, closest_store, units):
-        result = self._client.distance_matrix(origin, closest_store['address'], units=units)
+        params = {'origins': origin, 'destinations': closest_store['address'], 'units': units }
+        result = self.get('distancematrix/json', params)
         if result:
             try:
                 return {
