@@ -28,7 +28,7 @@ Address (can provide full address or zip in either of the following arguments, b
 **Optional** 
 
 Units
-* Accepted inputs: `imperial, metric, miles, km` (default is imperial)
+* Accepted inputs: `imperial, metric, mi, km` (default is imperial)
 * `--units=<input>`
 
 Output

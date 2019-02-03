@@ -35,7 +35,7 @@ class ArgParserTest(unittest.TestCase):
         self.assertEqual(args.units, 'metric')
 
     def test_converts_miles_unit_argument_to_imperial(self):
-        args = arg_parser.parse_args(['--units=miles'])
+        args = arg_parser.parse_args(['--units=mi'])
         self.assertEqual(args.units, 'imperial')
 
     def test_exits_when_invalid_units(self):

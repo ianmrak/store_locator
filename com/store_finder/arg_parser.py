@@ -7,7 +7,7 @@ def parse_args(args):
     addressTypes.add_argument('--zip', dest='address', help='Example: \'Main St., USA\'')
     addressTypes.add_argument('--address', dest='address', help='Example: \'123456\'')
     parser.add_argument('--output', default='text', choices=['text', 'json'])
-    parser.add_argument('--units', default='imperial', choices=['imperial', 'metric', 'km', 'miles'])
+    parser.add_argument('--units', default='imperial', choices=['imperial', 'metric', 'km', 'mi'])
     parsed_args = parser.parse_args(args)
     parsed_args.units = convert_units(parsed_args.units)
 
@@ -16,5 +16,5 @@ def parse_args(args):
 def convert_units(units):
     return {
         'km': 'metric',
-        'miles': 'imperial'
+        'mi': 'imperial'
     }.get(units, units) 
