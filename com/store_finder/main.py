@@ -14,6 +14,8 @@ def main():
         sys.exit('Please provide an API key provided for lookup [env=API_KEY]')
 
     args = parse_args(sys.argv[1:])
+
+    print 'Looking for the closest store near the provided address...'
     client = GoogleClient(UserAgent(), key)
     current_location = client.get_coords(args.address)
 
@@ -21,7 +23,11 @@ def main():
     
     output = client.get_distance(args.address, closest_store, units=args.units)
 
+    print '...Done!'
+
+    print '=============================================================='
     print format_output(output, args.output)
+    print '=============================================================='
 
 def get_closest_store(current_location):
     store_list = parse_file('com/resources/store-locations.csv')
