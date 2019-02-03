@@ -21,7 +21,7 @@ Arguments
 ---------
 **Required**:
 
-Address (can provide full or zip in either of the following arguments)
+Address (can provide full address or zip in either of the following arguments, but NOT both)
 * `--address=<address here>`
 * `--zip=<address here>`
 
