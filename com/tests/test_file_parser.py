@@ -11,7 +11,7 @@ class FileReaderTest(unittest.TestCase):
         self.assertEqual(no_header, 'NONE')
 
     def test_parses_all_addresses(self):
-        self.assertEqual(len(self.address_coords), 2)
+        self.assertEqual(len(self.address_coords), 3)
 
     def test_uses_address_key_and_lat_long_values(self):
         self.assertEqual(self.address_coords.get('5537 W Broadway Ave'), {'lat': '45.0521539', 'lng': '-93.364854'})
