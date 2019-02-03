@@ -16,7 +16,9 @@ Running the Program
     * `export API_KEY=<your_key>`
 * From the project base in the terminal run:
     * `python com/store_finder/main.py **args**`
-##### Arguments
+    
+Arguments
+---------
 **Required**:
 
 Address (can provide full or zip in either of the following arguments)
