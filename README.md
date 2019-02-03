@@ -42,3 +42,7 @@ To run tests from the example project root directory, run one of the following c
 
 * `python -m unittest discover` to discover all unit tests in a project
 * `python -m unittest com.tests.**module**` to run the test module by name
+
+Python version
+--------------
+* `2.7.10`
