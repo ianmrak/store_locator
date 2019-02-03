@@ -2,14 +2,15 @@ from math import sin, cos, sqrt, atan2, radians
 import sys
 
 def find_closest_store(current_location, store_list):
-     closest_store = {'address': None, 'distance': sys.maxint}
+     closest_store = {'store': None, 'address': None, 'distance': sys.maxint}
     
-     for address in store_list:
-          store_lat = float(store_list[address]['lat'])
-          store_lng = float(store_list[address]['lng'])
+     for store in store_list:
+          store_lat = float(store_list[store]['lat'])
+          store_lng = float(store_list[store]['lng'])
           distance = find_rough_distance(current_location['lat'], current_location['lng'], store_lat, store_lng)
           if distance < closest_store['distance']:
-            closest_store = {'address': address, 'distance': distance}
+               address = store_list[store]['address']
+               closest_store = {'store': store, 'address': address, 'distance': distance}
 
      return closest_store
 

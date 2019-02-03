@@ -15,11 +15,11 @@ class DistanceCalculatorTest(unittest.TestCase):
 
     def test_finds_closest_store(self):
         closest_store = find_closest_store({ 'lat': ORIGIN_LAT, 'lng': ORIGIN_LNG }, self.store_list)
-        self.assertEqual(closest_store, {'distance': 36.954451979605864, 'address': '4000 McCain Blvd'})
+        self.assertEqual(closest_store, {'distance': 36.954451979605864, 'address': '4000 McCain Blvd', 'store': 'Little Rock North'})
 
     def test_finds_closest_store_returns_none_if_no_stores(self):
         closest_store = find_closest_store({ 'lat': ORIGIN_LAT, 'lng': ORIGIN_LNG }, {})
-        self.assertEqual(closest_store, {'distance': sys.maxint, 'address': None })
+        self.assertEqual(closest_store, {'distance': sys.maxint, 'address': None, 'store': None })
 
     def test_finds_rough_distance_between_coordinates(self):
         distance = find_rough_distance(ORIGIN_LAT, ORIGIN_LNG, DESTINATION_LAT, DESTINATION_LNG)
